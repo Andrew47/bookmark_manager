@@ -7,7 +7,7 @@ feature 'Creating links' do
     visit '/'
     fill_in('title', with: 'Makers Academy')
     fill_in('url', with: 'http://www.makersacademy.com')
-    click_button('Hey Presto!')
+    click_button('Add Link')
     within 'ul#links' do
       expect(page).to have_content('http://www.makersacademy.com')
     end
