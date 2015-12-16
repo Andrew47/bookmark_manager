@@ -5,8 +5,14 @@ require './lib/link'
 
 class BookmarkManager < Sinatra::Base
   get '/' do
-    redirect '/links/new'
+    redirect '/links'
   end
+
+  get '/links' do
+    @links = Link.all
+    erb :'links/index'
+  end
+
 
   get '/links/new' do
     erb :'links/new'
@@ -17,9 +23,6 @@ class BookmarkManager < Sinatra::Base
     redirect '/links'
   end
 
-  get '/links' do
-    @links = Link.all
-    erb :'links/index'
-  end
+
 
 end

@@ -4,6 +4,12 @@
 
 feature 'Creating links' do
 
+  scenario 'I can access link creation page' do
+    visit '/'
+    click_button 'Add Link'
+    expect(page).to have_content('New Link')
+  end
+
   scenario 'I can create a new link' do
     visit '/links/new'
     fill_in('title', with: 'Makers Academy')
