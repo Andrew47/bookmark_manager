@@ -3,13 +3,18 @@
 # I would like to add the site's address and title to my bookmark manager
 
 feature 'Creating links' do
-  scenario 'I can submit links' do
-    visit '/'
+
+  scenario 'I can create a new link' do
+    visit '/links/new'
     fill_in('title', with: 'Makers Academy')
-    fill_in('url', with: 'http://www.makersacademy.com')
+    fill_in('url', with: 'http://www.makersacademy.com/')
     click_button('Add Link')
+
+    # want to be redirected back to links page
+    expect(current_path).to eq '/links'
+
     within 'ul#links' do
-      expect(page).to have_content('http://www.makersacademy.com')
+      expect(page).to have_content('Makers Academy')
     end
   end
 end
