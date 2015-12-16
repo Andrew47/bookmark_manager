@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+</head>
+
+<body>
+  <ul id='tag_links'>
+    <% @links.each do |link| %>
+    <% if link.tags.map(&:name).include?(@tag_name) %>
+    <li>
+      Title:  <%= link.title %>
+      URL:    <%= link.url %>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+</body>
+
+
+
+</html>
