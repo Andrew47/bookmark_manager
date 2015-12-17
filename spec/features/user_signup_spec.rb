@@ -17,7 +17,7 @@ feature 'Creating Users' do
     expect(page.status_code).to eq 200
     expect(page).to have_content('Welcome New User')
   end
-
+ 
   feature 'user sign-up' do
     scenario 'sign up as new user' do
     User.create(name: "terry",password: "qwerty", email: "terry@gmail.com")

@@ -5,21 +5,21 @@ class User
       include DataMapper::Resource
       include BCrypt
   has n, :links, through: Resource
-  DataMapper::Property::String.length(255)
+
 
   property :id,    Serial
   property :name,  String
   property :email,  String
-  property :password_hash , Text  
+  property :password , Text
 
 
-   def password
-   @password ||= Password.new(password_hash)
+   def password_new
+   @password_hashed ||= Password.new(password)
    end
 
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_hash = @password
+  def password_new(new_password)
+    @password_hashed = Password.create(new_password)
+    self.password = @password_hashed
   end
 
 
