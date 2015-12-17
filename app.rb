@@ -5,8 +5,9 @@ require_relative 'data_mapper_setup'
 
 
 class BookmarkManager < Sinatra::Base
+
   get '/' do
-    redirect '/links'
+    redirect '/users/sign_in'
   end
 
   get '/links' do
@@ -35,6 +36,19 @@ class BookmarkManager < Sinatra::Base
     redirect to('/links')
   end
 
+  get '/users/sign_in' do
+    erb :'users/sign_in'
+  end
+
+  post '/users/welcome_user' do
+    @user = User.create(name: params[:name], email: params[:email],
+      password: params[:password])
+    redirect to('/users/welcome_user')
+  end
+
+  get '/users/welcome_user' do
+    erb(:'users/welcome_user')
+  end
 
 
 end

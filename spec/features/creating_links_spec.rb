@@ -5,7 +5,7 @@
 feature 'Creating links' do
 
   scenario 'I can access link creation page' do
-    visit '/'
+    visit '/links'
     click_button 'Add Link'
     expect(page).to have_content('New Link')
   end
