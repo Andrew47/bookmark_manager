@@ -1,3 +1,5 @@
+
+
 feature 'Creating Users' do
 
   scenario 'I can see user count' do
