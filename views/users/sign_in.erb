@@ -5,12 +5,12 @@
 
   <label for='name'>
     Name:
-    <input type="text" name="name">
+    <input type="text" name="name" value=<%= @user.name if flash.now[:notice] %>>
   </label>
 
   <label for='email'>
     Email:
-    <input type="email" name="email">
+    <input type="email" name="email" value=<%= @user.email if flash.now[:notice] %> required>
   </label>
 
   <label for='password'>
