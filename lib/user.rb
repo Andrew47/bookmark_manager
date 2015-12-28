@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'dm-validations'
 
 
 class User
@@ -11,6 +12,8 @@ class User
   property :name,  String
   property :email,  String
   property :password , Text
+  attr_accessor :password_confirmation
+  validates_confirmation_of :password
 
 
    def password_new
