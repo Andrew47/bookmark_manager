@@ -7,31 +7,25 @@ feature 'Creating Users' do
   end
 
   scenario 'I can sign up' do
-    sign_up
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome andrew')
     expect(User.first.email).to eq("andy101@gmail.com")
   end
 
   scenario 'no user created if mismatching password confirmation' do
-    visit '/users/new'
-    expect(page.status_code).to eq 200
-    fill_in('name', with: 'andrew')
-    fill_in('email', with: 'andy101@gmail.com')
-    fill_in('password', with: 'qwerty')
-    fill_in('password_confirmation', with: 'wrong')
-    click_button('Sign Up')
-    expect(User.count).to(eq(0))
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
 
- def sign_up
+ def sign_up( name: 'andrew',
+              email: 'andy101@gmail.com',
+              password: 'qwerty',
+              password_confirmation: 'qwerty')
    visit '/users/new'
-   expect(page.status_code).to eq 200
-   fill_in('name', with: 'andrew')
-   fill_in('email', with: 'andy101@gmail.com')
-   fill_in('password', with: 'qwerty')
-   fill_in('password_confirmation', with: 'qwerty')
+   fill_in :name, with: name
+   fill_in :email, with: email
+   fill_in :password, with: password
+   fill_in :password_confirmation, with: password_confirmation
    click_button('Sign Up')
  end
 
