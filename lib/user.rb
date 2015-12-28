@@ -27,7 +27,7 @@ class User
 
 
 
-  def count
-    User.all.size
-  end
+  # def count
+  #   User.all.size
+  # end
 end
