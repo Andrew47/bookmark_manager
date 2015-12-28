@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>Book Mark Manager</title>
-</head>
+<h2>Links</h2>
 
-<body>
-  <h1>Links</h1>
-  <ul id='links'>
-    <% @links.each do |link| %>
-    <li>
-      Title:  <%= link.title %>
-      URL:    <%= link.url %>
-    </li>
-    <% end %>
-  </ul>
-  <form action='/links/new' method='get'>
-    <label for='Add Link'>
-      <input type='submit', value='Add Link'>
-    </label>
-  </form>
-  <form action='/tags' method='get'>
-    <label for='name'>
-      Tag:
-      <input type='text' name='name'>
-    </label>
-    <input type='submit' value='Filter by tag'>
-  </form>
-</body>
-
-
-
-</html>
+<ul id='links'>
+  <% @links.each do |link| %>
+  <li>
+    Title:  <%= link.title %>
+    URL:    <%= link.url %>
+  </li>
+  <% end %>
+</ul>
+<form action='/links/new' method='get'>
+  <label for='Add Link'>
+    <input type='submit', value='Add Link'>
+  </label>
+</form>
+<form action='/tags' method='get'>
+  <label for='name'>
+    Tag:
+    <input type='text' name='name'>
+  </label>
+  <input type='submit' value='Filter by tag'>
+</form>
