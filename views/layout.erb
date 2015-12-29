@@ -10,8 +10,12 @@
       <h1>Welcome <%= current_user.name %></h1>
     <% end %>
     <% if flash.now[:errors] %>
-    <p><% flash.now[:errors].each do |error| %>
-        <%= error %><% end %></p>
+    <p>Below problems must be resolved:</p>
+    <% flash.now[:errors].each do |error| %>
+    <ul>
+      <li><%= error.pop %></li>
+    </ul>
+    <% end %>
     <% end %>
     <%= yield %>
   </body>
