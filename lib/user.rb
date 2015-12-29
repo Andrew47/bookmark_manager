@@ -10,10 +10,12 @@ class User
 
   property :id,    Serial
   property :name,  String
-  property :email,  String, required: true
+  property :email,  String, required: true, unique: true,
+    message: "Email address taken"
   property :password , Text
   attr_accessor :password_confirmation
-  validates_confirmation_of :password
+  validates_confirmation_of :password,
+    message: "Password does not match confirmation"
   validates_format_of :email, :as => :email_address
 
 

@@ -9,8 +9,9 @@
     <% if current_user %>
       <h1>Welcome <%= current_user.name %></h1>
     <% end %>
-    <% if flash.now[:notice] %>
-    <p><%= flash.now[:notice] %></p>
+    <% if flash.now[:errors] %>
+    <p><% flash.now[:errors].each do |error| %>
+        <%= error %><% end %></p>
     <% end %>
     <%= yield %>
   </body>

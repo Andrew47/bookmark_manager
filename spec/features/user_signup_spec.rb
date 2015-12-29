@@ -26,6 +26,12 @@ feature 'Creating Users' do
     expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
   end
 
+  scenario 'user can not sign up with an already registered email address' do
+    sign_up(email: 'andy101@gmail.com')
+    expect { sign_up(email: 'andy101@gmail.com') }.not_to change(User, :count)
+    expect(page).to have_content 'Email address taken'
+  end
+
 
  def sign_up( name: 'andrew',
               email: 'andy101@gmail.com',
