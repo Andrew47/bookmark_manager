@@ -10,7 +10,7 @@
 
   <label for='email'>
     Email:
-    <input type="email" name="email" value=<%= @user.email if flash.now[:notice] %> required>
+    <input type="email" name="email" required value=<%= @user.email if flash.now[:notice] %> >
   </label>
 
   <label for='password'>

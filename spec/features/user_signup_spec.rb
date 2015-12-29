@@ -19,12 +19,11 @@ feature 'Creating Users' do
   end
 
   scenario 'user cannot sign up without entering an email' do
-    visit '/users/new'
-    fill_in :name, with: 'andrew'
-    fill_in :password, with: 'qwerty'
-    fill_in :password_confirmation, with: 'qwerty'
-    fill_in :email, with: nil
-    expect { click_button('Sign Up') }.not_to change(User, :count)
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'user cannot sign up with an invalid email' do
+    expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
   end
 
 
