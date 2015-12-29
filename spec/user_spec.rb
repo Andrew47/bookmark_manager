@@ -5,23 +5,18 @@ require 'user'
 
 describe User do
 
-subject(:user){described_class.new}
+  let!(:user) do
+    User.create(name: 'example', email: 'test@test.com', password: 'secret1234',
+    password_confirmation: 'secret1234')
+  end
 
-# describe '#count' do
-#   it 'should have default value of zero' do
-#     expect(user.count).to eq 0
-#   end
-#
-#   it 'has a value of 1 upon an addition' do
-#     User.create(name: "terry",password: "qwerty", email: "terry@gmail.com")
-#     expect(user.count).to eq 1
-#   end
-#
-# end
+  it 'authenticates when given a valid email address and password' do
+    authenticated_user = User.authenticate(user.email, user.password)
+    expect(authenticated_user.email).to eq user.email
+  end
 
-   it 'checks email address is correct for user' do
-     User.create(name: "terry",password: "qwerty", email: "terry@gmail.com", password_confirmation: "qwerty")
-     expect(User.first.email).to eq("terry@gmail.com")
-   end
+  it 'does not authenticate when given an incorrect password' do
+    expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+  end
 
 end
