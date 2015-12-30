@@ -6,27 +6,10 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-    <% if current_user %>
-      <h1>Welcome <%= current_user.name %></h1>
-    <% end %>
-    <% if flash.now[:errors] %>
-    <p>Below problems must be resolved:</p>
-    <% flash.now[:errors].each do |error| %>
-    <ul>
-      <li><%= error.pop %></li>
-    </ul>
-    <% end %>
-    <% end %>
+    <%= erb(:welcome_message) %>
     <%= yield %>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
+    <%= erb(:sign_out_button) %>
+    <%= erb(:flash) %>
   </body>
 
 
