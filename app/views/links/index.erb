@@ -6,6 +6,7 @@
   <li>
     Title:  <%= link.title %>
     URL:    <%= link.url %>
+    Tags: <%link.tags.each do |tag| %> <%= tag.name %> <% end %>
   </li>
   <% end %>
 </ul>
@@ -14,7 +15,7 @@
     <input type='submit', value='Add Link'>
   </label>
 </form>
-<form action='/tags' method='get'>
+<form action='/tags/:name' method='get'>
   <label for='name'>
     Tag:
     <input type='text' name='name'>
