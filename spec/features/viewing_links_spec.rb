@@ -33,16 +33,33 @@ feature 'Viewing links' do
      # So that I can quickly find links on a particular topic
      # I would like to filter links by tag
 
-       scenario 'I can see the links associated with a tag' do
-         visit '/tags/bubbles'
-           expect(page.status_code).to eq 200
-            within 'ul#links' do
-              expect(page).not_to have_content('Makers Academy')
-              expect(page).not_to have_content('Google')
-              expect(page).to have_content('This is Zombocom')
-              expect(page).to have_content('Bubble Bobble')
-            end
-          end
+     scenario 'I can see the links associated with a tag' do
+      visit '/links'
+      fill_in :name, with: 'bubbles'
+      click_button 'Filter by tag'
+      expect(page.status_code).to eq 200
+           within 'ul#links' do
+             expect(page).not_to have_content('Makers Academy')
+             expect(page).not_to have_content('Google')
+             expect(page).to have_content('This is Zombocom')
+             expect(page).to have_content('Bubble Bobble')
+           end
+         end
+
+
+
+     #below is outdated test
+
+      #  scenario 'I can see the links associated with a tag' do
+      #    visit '/tags/bubbles'
+      #      expect(page.status_code).to eq 200
+      #       within 'ul#links' do
+      #         expect(page).not_to have_content('Makers Academy')
+      #         expect(page).not_to have_content('Google')
+      #         expect(page).to have_content('This is Zombocom')
+      #         expect(page).to have_content('Bubble Bobble')
+      #       end
+      #     end
 
 
 
