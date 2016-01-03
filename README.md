@@ -6,6 +6,9 @@ Run the following in the command line:
 
 ```
 git clone git@github.com:Andrew47/bookmark_manager.git
+bundle
+createdb bookmark_manager_development
+rake db:auto_migrate!
 cd bookmark_manager
 bundle
 rackup
@@ -15,7 +18,7 @@ Then click the following link, or copy and paste the URL: [http://localhost:9292
 
 ##Accessing the application website
 
-Click the following link, or copy and paste the URL: [apburnie-bookmanager.herokuapp.com/](apburnie-bookmanager.herokuapp.com/).
+Click the following link, or copy and paste the URL: [http://apburnie-bookmanager.herokuapp.com/users/new](http://apburnie-bookmanager.herokuapp.com/users/new).
 
 ##Using the application
 
