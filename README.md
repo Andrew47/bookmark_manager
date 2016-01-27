@@ -1,17 +1,21 @@
-# Week 4 of Makers Academy: Bookmark Manager Website
+# Bookmark Manager Challenge
+
+This is a solution to Makers Academy's [Bookmark Manager Challenge](https://github.com/makersacademy/course/blob/master/bookmark_manager/00_challenge_map.md). This creates a [Sinatra](http://www.sinatrarb.com) application that enables the storage of bookmarks. This uses a test-driven approach with both unit tests using [RSpec](http://rspec.info) and feature tests using [Capybara](https://github.com/jnicklas/capybara).
+
+The development of this application also required the use of [DataMapper](http://datamapper.org) and SQL (using [PostgreSQL](http://postgresapp.com)).
 
 ##Installation Instructions
 
 Run the following in the command line:
 
 ```
-git clone git@github.com:Andrew47/bookmark_manager.git
-bundle
-createdb bookmark_manager_development
-rake db:auto_migrate!
-cd bookmark_manager
-bundle
-rackup
+$ git clone git@github.com:Andrew47/bookmark_manager.git
+$ bundle
+$ createdb bookmark_manager_development
+$ rake db:auto_migrate!
+$ cd bookmark_manager
+$ bundle
+$ rackup
 ```
 
 Then click the following link, or copy and paste the URL: [http://localhost:9292](http://localhost:9292).
